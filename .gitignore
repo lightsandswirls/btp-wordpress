@@ -1,0 +1,73 @@
+###################################################################
+#
+# This file should be placed in the repo's root directory.
+# File paths below assume we are inside the theme folder.
+#
+# By default all files are ignored.  You'll need to whitelist
+# any mu-plugins, plugins, or themes you want to include in the repo.
+#
+# Author: lightsandswirls
+#
+# Based on ".gitignore for WordPress" by Sal Ferrarello
+# https://salferrarello.com/wordpress-gitignore/
+#
+###################################################################
+
+# Ignore all files starting with . or ~
+# (.gitignore gets whitelisted below)
+.*
+~*
+
+# Allow all files starting with . under /vendor/ but ignore .DS_Store
+!vendor/**/.*
+vendor/**/.DS_Store
+
+# Ignore node dependency directories (used by webpack)
+node_modules/
+
+# Ignore OS generated files
+ehthumbs.db
+Thumbs.db
+
+# Ignore Editor files
+.vscode/*
+*.sublime-project
+*.sublime-workspace
+sftp-config.json
+*.komodoproject
+*.esproj
+.nova/*
+*.tmproj
+*.tmproject
+
+# Ignore log files and databases
+*.log
+*.sql
+*.sqlite
+
+# Ignore compiled files
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Ignore packaged files
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# -------------------------
+# BEGIN Whitelisted Files
+# -------------------------
+
+# Track these files, if they exist
+!.gitignore
+!.editorconfig
+!.phpcs.xml.dist

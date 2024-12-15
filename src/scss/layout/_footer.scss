@@ -1,0 +1,27 @@
+/**
+ * Footer
+ * 
+ * @package btp-wordpress
+ */
+
+@use "../abstracts" as *;
+
+footer {
+
+    .footer-bottom {
+        background-color: $color-secondary;
+        color: $color-primary;
+
+        .footer-copyright {
+            font-family: $font-primary;
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 24px;
+            text-align: left;
+            text-underline-position: from-font;
+            text-decoration-skip-ink: none;
+        }
+
+    }   
+
+}
