@@ -1,13 +1,19 @@
+/**
+ * Main SCSS file for the BTP WordPress Demo theme.
+ * 
+ * @package btp-wordpress
+ */
+@charset 'utf-8';
+
 // Sass Modules
 @use 'sass:color';
 @use 'sass:map';
 @use 'sass:math';
 
 // SCSS Files
-@use 'abstracts' as *;
-@use 'vendors' as vendors;
-@use 'base' as base;
-//@use 'components' as components;
-@use 'layout' as layout;
-@use 'pages' as pages;
-//@use 'themes' as themes;
+@use 'vendors';
+@use 'base';
+@use 'layout';
+@use 'components';
+@use 'pages';
+//@use 'themes';

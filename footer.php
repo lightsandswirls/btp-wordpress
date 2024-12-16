@@ -15,14 +15,19 @@
                                 <span class="copyright py-md-0">&copy; Copyright <?php echo date( 'Y' ); ?>, By the Pixel</span>
                             </div>
                             <div class="col-xl-6">
-                                <ul class="sitemap-privacy-links mb-md-0 d-flex">
-                                    <li>
-                                        <a href="#" aria-label="Terms & Conditions">Terms & Conditions</a>
-                                    </li>
-                                    <li>
-                                        <a href="/privacy-policy/" aria-label="Privacy Policy">Privacy Policy</a>
-                                    </li>
-                                </ul>
+                                <nav class="footer-nav">
+                                    <?php
+                                    wp_nav_menu(
+                                        array(
+                                            'container' => 'div',
+                                            'container_class' => 'menu-container',
+                                            'theme_location' => 'footer-menu',
+                                            'menu_class' => 'navbar-nav footer-menu',
+                                            'walker' => new WP_Bootstrap_Navwalker(),
+                                        )
+                                    );
+                                    ?>
+                                </nav>
                             </div>
                         </div>
 

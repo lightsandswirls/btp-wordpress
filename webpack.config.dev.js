@@ -1,7 +1,6 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
 const DashboardPlugin = require('webpack-dashboard/plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
@@ -38,12 +37,14 @@ module.exports = {
         use: [
           MiniCssExtractPlugin.loader,
           {
+            // translates CSS into CommonJS modules
             loader: 'css-loader',
             options: {
               sourceMap: true
             }
           },
           {
+            // Run postcss actions
             loader: 'postcss-loader',
             options: {
               postcssOptions: {
@@ -63,6 +64,7 @@ module.exports = {
             }
           },
           {
+            // compiles Sass to CSS
             loader: 'sass-loader',
             options: {
               sourceMap: true
@@ -72,14 +74,10 @@ module.exports = {
       },
       {
         test: /\.(png|jpe?g|gif|svg)$/i,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: 'images/[name].[ext]',
-            }
-          }
-        ]
+        type: 'asset/resource',
+        generator: {
+          filename: 'images/[name][ext]'
+        }
       }
     ]
   },
@@ -87,11 +85,6 @@ module.exports = {
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: 'css/[name].css'
-    }),
-    new CopyPlugin({
-      patterns: [
-        { from: 'src/images', to: 'images' }
-      ]
     }),
     new DashboardPlugin(),
     process.env.ANALYZE && new BundleAnalyzerPlugin()
@@ -106,7 +99,9 @@ module.exports = {
           chunks: 'all'
         }
       }
-    }
+    },
+    minimize: false,
+    minimizer: []
   },
   devtool: 'source-map',
   watchOptions: {

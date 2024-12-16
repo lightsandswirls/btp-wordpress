@@ -1,0 +1,25 @@
+/*
+* Custom Bootstrap variables and functions
+* 
+* Make sure this file gets imported into /vendors/_bootstrap.scss before the bootstrap scss files directory.
+* https://getbootstrap.com/docs/5.1/getting-started/webpack/#importing-styles
+* 
+* @package btp-wordpress
+*/
+
+/* Additional breakpoints and grid col classes */
+$grid-breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1440px
+);
+$container-max-widths: (
+    sm: 540px,
+    md: 720px,
+    lg: 960px,
+    xl: 1140px,
+    xxl: 1250px
+);

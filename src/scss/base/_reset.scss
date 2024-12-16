@@ -1,0 +1,165 @@
+/**
+ * Modern CSS Reset by lightsandswirls
+ * 
+ * Uses Josh Comeau's Custom CSS Reset for #s 1-8 below with 
+ * some additional recommendations from Chris Coyier, along 
+ * with some old-school basics from the king, Eric Meyer.
+ * https://www.joshwcomeau.com/css/custom-css-reset/
+ * https://css-tricks.com/notes-on-josh-comeaus-custom-css-reset/
+ * https://meyerweb.com/eric/tools/css/reset/
+ */
+
+ @use "../abstracts" as *;
+
+/* 1. Use a more-intuitive box-sizing model that utilizes the inheritance method */
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+  
+/* 2. Remove default margin */
+* {
+    margin: 0;
+    padding: 0;
+}
+  
+body {
+    /* 3. Add accessible line-height */
+    line-height: 1.5;
+    /* 4. Improve text rendering */
+    -webkit-font-smoothing: antialiased;
+}
+  
+/* 5. Improve media defaults */
+img, picture, video, canvas, svg, iframe, object {
+    display: block;
+    max-width: 100%;
+}
+  
+/* 6. Inherit fonts for form controls */
+input, button, textarea, select {
+    font: inherit;
+}
+  
+/* 7. Avoid text overflows */
+p, h1, h2, h3, h4, h5, h6, li, dl, dt, blockquote {
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+  
+/* 8. Improve line wrapping */
+p {
+    text-wrap: pretty;
+}
+/*
+h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance; // TODO: Revisit this; it looks nice but doesn't always match the design exactly. Created a helper class to use instead.
+}*/
+  
+/* Lists */
+ol, ul {
+    list-style: none;
+}
+
+/* Tables */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* Links */
+a {
+    color: inherit;
+    cursor: pointer;
+    transition: all 0.2s linear;
+    text-decoration: underline;
+
+    &:hover {
+        text-decoration: none;
+    }
+
+    &:focus {
+        outline: thin dotted;
+    }
+}
+
+/* Remove default button styles */
+button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+/* WordPress specific resets */
+.alignnone {
+    margin: 5px 20px 20px 0;
+}
+
+.aligncenter,
+div.aligncenter {
+    display: block;
+    margin: 5px auto;
+}
+
+.alignright {
+    float: right;
+    margin: 5px 0 20px 20px;
+}
+
+.alignleft {
+    float: left;
+    margin: 5px 20px 20px 0;
+}
+
+.wp-caption {
+    background: $color-white;
+    border: 1px solid $color-gray-light;
+    max-width: 96%;
+    padding: 5px 3px 10px;
+    text-align: center;
+    
+    img {
+        border: 0 none;
+        height: auto;
+        margin: 0;
+        max-width: 98.5%;
+        padding: 0;
+        width: auto;
+    }
+    
+    p.wp-caption-text {
+        font-size: 11px;
+        line-height: 17px;
+        margin: 0;
+        padding: 0 4px 5px;
+    }
+}
+
+.screen-reader-text {
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute !important;
+    width: 1px;
+    word-wrap: normal !important;
+    
+    &:focus {
+        clip: auto !important;
+        clip-path: none;
+        display: block;
+        height: auto;
+        left: 5px;
+        padding: 15px 23px 14px;
+        text-decoration: none;
+        top: 5px;
+        width: auto;
+        z-index: 100000;
+    }
+}

@@ -8,46 +8,46 @@
 get_header();
 ?>
 
-<section class="main-content">
+                <section class="main-content">
 
-    <div class="container">
+                    <div class="container">
 
-        <div class="row">
+                        <div class="row">
 
-            <div class="col-12">
+                            <div class="col-12 col-md-6 offset-md-3 text-center">
 
-                <!-- centered content -->
+                                <h2 class="text-balance"><?php the_field('callout_headline'); ?></h2>
 
-            </div>           
+                            </div>           
 
-        </div>
+                        </div>
 
-    </div>
+                    </div>
 
-</section>
+                </section>
 
-<section class="main-content">
+                <section class="main-content bg-gray-transparent">
 
-    <div class="container">
+                    <div class="container">
 
-        <div class="row">
+                        <div class="row">
 
-            <div class="col-12 col-md-6">
+                            <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
-                <!-- left content -->
+                            <div class="col-12 col-md-6 pe-5 mt-3">
+                                <?php the_content(); ?>
+                            </div>
+                            
+                            <div class="col-12 col-md-6 ps-0">
+                                <?php the_post_thumbnail('btp-featured-img'); ?>
+                            </div>      
+                            
+                            <?php endwhile; endif; ?>                            
 
-            </div>
+                        </div>
 
-            <div class="col-12 col-md-6">
+                    </div>
 
-                <!-- image -->
-
-            </div>            
-
-        </div>
-
-    </div>
-
-</section>
+                </section>
 
 <?php get_footer(); ?>

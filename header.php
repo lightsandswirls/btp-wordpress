@@ -29,8 +29,9 @@
 
 	<!-- Google Tag Manager (noscript) -->
 
-	<a href="#main-wrapper" class="skiplink" tabindex="1">Skip Navigation</a>
+	<a href="#main-wrapper" class="screen-reader-text" tabindex="1">Skip Navigation</a>
 
+	<?php /*
 	<!-- Mobile Menu -->
 	<div id="mobile-menu">
 		<?php
@@ -46,9 +47,11 @@
 		?>
 	</div>
 	<!-- Mobile Menu END -->
+	*/ ?>
 
 	<div id="panel">
 
+		<?php /*
 		<header class="header">
 
 			<div class="top-header-mobile d-block d-lg-none">
@@ -86,7 +89,6 @@
 						</div>
 
 						<div class="col-md-9">
-
 							<div class="desktop-menu">
 								<nav id="nav-desktop" class="navbar navbar-expand-lg d-none d-lg-block">
 
@@ -99,7 +101,7 @@
 												'menu_class' => 'navbar-nav header-menu',
 												'walker' => new WP_Bootstrap_Navwalker(),
 											)
-										)
+										);
 										?>
 
 								</nav>
@@ -112,16 +114,15 @@
 
 			</div>
 
-		</header>		
+		</header>
+		*/ ?>
 
 		<main class="main-wrapper" id="main-wrapper">
 			
 			<?php $id_attr = (get_field('article_id')) ? "id='".get_field('article_id')."'" : ""; ?>
 			
-			<article <?php echo $id_attr; ?>  class="pos-rel">
+			<article <?php echo $id_attr; ?>>
 
-			<?php
-			if ( is_front_page() ) {
+			<?php if ( is_front_page() ) {
 				get_template_part( 'partials/hero-home' );
-			}
-			?>
+			} ?>

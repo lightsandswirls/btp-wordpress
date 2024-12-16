@@ -31,20 +31,23 @@ remove_action( 'admin_print_styles', 'print_emoji_styles' );
  * Theme Scripts and Styles
  */
 function enqueue_scripts_styles() {
-    
-    // Remove jQuery & jQuery Migrate
+    // Remove default jQuery & jQuery Migrate
     wp_deregister_script('jquery');
     wp_deregister_script('jquery-migrate');
+
+    // Register new jQuery
+    wp_register_script('jquery', 'https://code.jquery.com/jquery-3.7.1.min.js', array(), '3.7.1', true);
+    wp_enqueue_script('jquery');
 
     // Remove Gutenberg Block Library Styles
     wp_dequeue_style( 'wp-block-library' );
     wp_dequeue_style( 'wp-block-library-theme' );
 
-    // Add Compiled CSS (Change to main.min.css when ready for production)
+    // Add Compiled CSS
     wp_enqueue_style('theme-styles', THEME_DIR_URI . '/dist/css/main.css', array(), '1.0.0');
     
-    // Add Compiled JS (Change to main.min.js when ready for production)
-    wp_enqueue_script('theme-scripts', THEME_DIR_URI . '/dist/js/main.js', array(), '1.0.0', true);
+    // Add Compiled JS
+    wp_enqueue_script('theme-scripts', THEME_DIR_URI . '/dist/js/main.js', array('jquery'), '1.0.0', true);
 }
 add_action('wp_enqueue_scripts', 'enqueue_scripts_styles');
 
@@ -70,6 +73,7 @@ function custom_image_sizes()
  {
     add_image_size( 'btp-hero-image', 1535, 730, true );
     add_image_size( 'btp-hero-image-mobile', 768, 432, true );
+    add_image_size( 'btp-featured-img', 613, 431, true );
  }
  add_action('after_setup_theme', 'custom_image_sizes');
 

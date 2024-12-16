@@ -1,0 +1,212 @@
+/**
+ * Sidebar SCSS file for the BTP WordPress Demo theme.
+ * 
+ * @package btp-wordpress
+ */
+
+@use "../abstracts" as *;
+
+.sidebar {
+
+    max-width: 450px;
+
+    @include media('<desktop') {
+        margin: 0 auto;
+        padding-top: 35px;
+    }
+
+    .sidebar-item {
+        >div:not(:empty) {
+            margin-bottom: 60px;
+        }
+    }
+
+    .sidebar-item:not(:empty) {
+
+        .sidebar-holder {
+            background-color: $blue2;
+            padding: 47px 19px 45px;
+
+            @media #{$desktop-large} {
+                padding: 47px 20px 45px;
+            }
+
+            @media #{$desktop-xl} {
+                padding: 47px 30px 45px;
+            }
+
+            .sidebar-title {
+                text-transform: uppercase;
+                color: $white;
+            }
+
+            .list {
+                margin: 0;
+                padding: 0;
+
+                li {
+                    position: relative;
+                    list-style: none;
+                    border-top: 1px solid rgba(#d2d2d2, .3);
+                    text-align: left;
+                    margin: 0;
+
+                    &:last-child {
+                        border-bottom: 1px solid rgba(#d2d2d2, .3);
+                    }
+
+                    a {
+                        color: $white;
+                        font-size: 16px;
+                        font-weight: 400;
+                        line-height: normal;
+                        display: block;
+                        position: relative;
+                        padding: 17px 0;
+                        transform: all .5s;
+
+                        &:hover {
+                            font-weight: 700;
+                        }
+
+                    }
+
+                }
+            }
+        }
+
+        // Sidebar Form Widget
+        .widget_form {
+            max-width: 450px;
+            margin-left: auto;
+            margin-right: auto;
+
+            .form-wrap {
+                box-shadow: none;
+                border: none;
+
+                @media #{$tablet} {
+                    padding: 45px 30px 55px;
+                }
+
+                @media #{$desktop-large} {
+                    padding: 45px 20px 55px;
+                }
+
+                @media #{$desktop-xl} {
+                    padding: 45px 40px 55px;
+                }
+
+                .btn-std {
+                    width: 100%;
+                    display: inline-block;
+                    text-align: center;
+
+                    span {
+                        @media #{$desktop} {
+                            padding-left: 9px;
+                            padding-right: 9px;
+                        }
+                    }
+                }
+
+                .form-title {
+                    margin-bottom: 20px;
+                    font-size: 30px;
+                }
+
+            }
+
+        }
+
+        // Blog Sidebar Categories & Archives Widgets
+        .widget_categories,
+        .widget_archive {
+            @extend .sidebar-holder;
+
+            .sidebar-title {
+                text-align: center;
+            }
+
+            ul {
+                @extend .list;
+            }
+        }
+
+        // Blog Sidebar Search Widget
+        .widget_search {
+            @extend .sidebar-holder;
+
+            .sidebar-title {
+                text-align: center;
+            }
+
+            .searchform {
+                border-radius: 0;
+                overflow: hidden;
+
+                #s {
+                    height: 50px;
+                    border: 1px solid #d8d9d9;
+                    background-color: #ffffff;
+                    width: calc(100% - 60px);
+                    float: left;
+                    color: #000000;
+                    font-family: $default-font;
+                    font-size: 16px;
+                    font-weight: 400;
+                    line-height: 58px;
+                    padding: 0 20px;
+                    border: 1px solid #d8d9d9;
+
+                    @include media('<tablet') {
+                        font-size: 18px;
+                    }
+
+                    @include placeholder {
+                        color: $text;
+                        opacity: 1;
+                    }
+                }
+
+                #searchsubmit {
+                    float: left;
+                    width: 57px;
+                    height: 50px;
+                    border: none;
+                    background: $black;
+                    color: $white;
+                    font-family: $default-font;
+                    font-size: 21px;
+                    font-weight: 400;
+                    line-height: 50px;
+                    text-align: center;
+                    transition: all 0.2s linear;
+                    cursor: pointer;
+
+                    &:hover {
+                        color: $white;
+                        background: lighten($black, 10%);
+                    }
+                }
+
+                @extend %clearfix;
+
+            }
+        }
+
+        &:empty {
+            display: none !important;
+        }
+
+    }
+
+    &-title {
+        // Defined outside of .sidebar-item in case a sidebar widget is used outside the sidebar.
+        font-size: 22px;
+        letter-spacing: 2.2px;
+        line-height: 25px;
+        padding-bottom: 2rem;
+    }
+
+}

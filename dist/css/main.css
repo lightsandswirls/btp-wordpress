@@ -3,20 +3,28 @@
   \*******************************************************************************************************************************************************************************************************************************************/
 @charset "UTF-8";
 /**
- * Color Definitions
+ * Main SCSS file for the BTP WordPress Demo theme.
+ * 
+ * @package btp-wordpress
  */
 /**
- * Base Colors
+ * Bootstrap v5
+ * 
+ * First, import our custom Bootstrap variables and functions. Then, import Bootstrap.
+ * 
+ * https://getbootstrap.com/docs/5.1/getting-started/webpack/#importing-styles
+ * 
+ * @package btp-wordpress
  */
-/**
- * Typography
- */
-/**
- * Media Queries & Breakpoints
- */
-/**
- * Body  TODO: Move to base folder
- */
+/*
+* Custom Bootstrap variables and functions
+* 
+* Make sure this file gets imported into /vendors/_bootstrap.scss before the bootstrap scss files directory.
+* https://getbootstrap.com/docs/5.1/getting-started/webpack/#importing-styles
+* 
+* @package btp-wordpress
+*/
+/* Additional breakpoints and grid col classes */
 /*!
  * Bootstrap  v5.3.3 (https://getbootstrap.com/)
  * Copyright 2011-2024 The Bootstrap Authors
@@ -809,9 +817,9 @@ progress {
     max-width: 1140px;
   }
 }
-@media (min-width: 1400px) {
+@media (min-width: 1440px) {
   .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
-    max-width: 1320px;
+    max-width: 1250px;
   }
 }
 :root {
@@ -820,7 +828,7 @@ progress {
   --bs-breakpoint-md: 768px;
   --bs-breakpoint-lg: 992px;
   --bs-breakpoint-xl: 1200px;
-  --bs-breakpoint-xxl: 1400px;
+  --bs-breakpoint-xxl: 1440px;
 }
 
 .row {
@@ -1728,7 +1736,7 @@ progress {
     --bs-gutter-y: 3rem;
   }
 }
-@media (min-width: 1400px) {
+@media (min-width: 1440px) {
   .col-xxl {
     flex: 1 0 0%;
   }
@@ -2139,7 +2147,7 @@ progress {
     -webkit-overflow-scrolling: touch;
   }
 }
-@media (max-width: 1399.98px) {
+@media (max-width: 1439.98px) {
   .table-responsive-xxl {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
@@ -3718,7 +3726,7 @@ textarea.form-control-lg {
     left: auto;
   }
 }
-@media (min-width: 1400px) {
+@media (min-width: 1440px) {
   .dropdown-menu-xxl-start {
     --bs-position: start;
   }
@@ -4449,7 +4457,7 @@ textarea.form-control-lg {
     overflow-y: visible;
   }
 }
-@media (min-width: 1400px) {
+@media (min-width: 1440px) {
   .navbar-expand-xxl {
     flex-wrap: nowrap;
     justify-content: flex-start;
@@ -5428,7 +5436,7 @@ textarea.form-control-lg {
     border-left-width: var(--bs-list-group-border-width);
   }
 }
-@media (min-width: 1400px) {
+@media (min-width: 1440px) {
   .list-group-horizontal-xxl {
     flex-direction: row;
   }
@@ -5965,7 +5973,7 @@ textarea.form-control-lg {
     overflow-y: auto;
   }
 }
-@media (max-width: 1399.98px) {
+@media (max-width: 1439.98px) {
   .modal-fullscreen-xxl-down {
     width: 100vw;
     max-width: none;
@@ -6854,7 +6862,7 @@ textarea.form-control-lg {
   }
 }
 
-@media (max-width: 1399.98px) {
+@media (max-width: 1439.98px) {
   .offcanvas-xxl {
     position: fixed;
     bottom: 0;
@@ -6870,12 +6878,12 @@ textarea.form-control-lg {
     transition: var(--bs-offcanvas-transition);
   }
 }
-@media (max-width: 1399.98px) and (prefers-reduced-motion: reduce) {
+@media (max-width: 1439.98px) and (prefers-reduced-motion: reduce) {
   .offcanvas-xxl {
     transition: none;
   }
 }
-@media (max-width: 1399.98px) {
+@media (max-width: 1439.98px) {
   .offcanvas-xxl.offcanvas-start {
     top: 0;
     left: 0;
@@ -6914,7 +6922,7 @@ textarea.form-control-lg {
     visibility: visible;
   }
 }
-@media (min-width: 1400px) {
+@media (min-width: 1440px) {
   .offcanvas-xxl {
     --bs-offcanvas-height: auto;
     --bs-offcanvas-border-width: 0;
@@ -7387,7 +7395,7 @@ textarea.form-control-lg {
     z-index: 1020;
   }
 }
-@media (min-width: 1400px) {
+@media (min-width: 1440px) {
   .sticky-xxl-top {
     position: sticky;
     top: 0;
@@ -11835,7 +11843,7 @@ textarea.form-control-lg {
     text-align: center !important;
   }
 }
-@media (min-width: 1400px) {
+@media (min-width: 1440px) {
   .float-xxl-start {
     float: left !important;
   }
@@ -12446,6 +12454,344 @@ textarea.form-control-lg {
   }
 }
 /**
+ * Modern CSS Reset by lightsandswirls
+ * 
+ * Uses Josh Comeau's Custom CSS Reset for #s 1-8 below with 
+ * some additional recommendations from Chris Coyier, along 
+ * with some old-school basics from the king, Eric Meyer.
+ * https://www.joshwcomeau.com/css/custom-css-reset/
+ * https://css-tricks.com/notes-on-josh-comeaus-custom-css-reset/
+ * https://meyerweb.com/eric/tools/css/reset/
+ */
+/**
+ * Color Definitions
+ */
+/**
+ * Base Colors
+ */
+/**
+ * Typography
+ */
+/**
+ * Media Queries & Breakpoints
+ */
+/**
+ * Functions SCSS file for the BTP WordPress Demo theme.
+ * 
+ * @package btp-wordpress
+ */
+/* 
+* Function to return a color with an opacity value.
+* @param {number} $opacity - The opacity value (0-1).
+* @return {string} The color with the specified opacity.
+*
+* Usage:
+* .element {
+*   background-color: white(0.5);
+* }
+*/
+/* 1. Use a more-intuitive box-sizing model that utilizes the inheritance method */
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  /* 3. Add accessible line-height */
+  line-height: 1.5;
+  /* 4. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 5. Improve media defaults */
+img, picture, video, canvas, svg, iframe, object {
+  display: block;
+  max-width: 100%;
+}
+
+/* 6. Inherit fonts for form controls */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* 7. Avoid text overflows */
+p, h1, h2, h3, h4, h5, h6, li, dl, dt, blockquote {
+  word-wrap: break-word;
+  -webkit-hyphens: auto;
+          hyphens: auto;
+}
+
+/* 8. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+
+/*
+h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance; // TODO: Revisit this; it looks nice but doesn't always match the design exactly. Created a helper class to use instead.
+}*/
+/* Lists */
+ol, ul {
+  list-style: none;
+}
+
+/* Tables */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Links */
+a {
+  color: inherit;
+  cursor: pointer;
+  transition: all 0.2s linear;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+a:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+a:focus {
+  outline: thin dotted;
+}
+
+/* Remove default button styles */
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* WordPress specific resets */
+.alignnone {
+  margin: 5px 20px 20px 0;
+}
+
+.aligncenter,
+div.aligncenter {
+  display: block;
+  margin: 5px auto;
+}
+
+.alignright {
+  float: right;
+  margin: 5px 0 20px 20px;
+}
+
+.alignleft {
+  float: left;
+  margin: 5px 20px 20px 0;
+}
+
+.wp-caption {
+  background: #fff;
+  border: 1px solid #f7f7f7;
+  max-width: 96%;
+  padding: 5px 3px 10px;
+  text-align: center;
+}
+.wp-caption img {
+  border: 0 none;
+  height: auto;
+  margin: 0;
+  max-width: 98.5%;
+  padding: 0;
+  width: auto;
+}
+.wp-caption p.wp-caption-text {
+  font-size: 11px;
+  line-height: 17px;
+  margin: 0;
+  padding: 0 4px 5px;
+}
+
+.screen-reader-text {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute !important;
+  width: 1px;
+  word-wrap: normal !important;
+}
+.screen-reader-text:focus {
+  clip: auto !important;
+  clip-path: none;
+  display: block;
+  height: auto;
+  left: 5px;
+  padding: 15px 23px 14px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  top: 5px;
+  width: auto;
+  z-index: 100000;
+}
+
+/**
+ * Modern CSS Reset by lightsandswirls
+ * 
+ * Uses Josh Comeau's Custom CSS Reset for #s 1-8 below with 
+ * some additional recommendations from Chris Coyier, along 
+ * with some old-school basics from the king, Eric Meyer.
+ * https://www.joshwcomeau.com/css/custom-css-reset/
+ * https://css-tricks.com/notes-on-josh-comeaus-custom-css-reset/
+ * https://meyerweb.com/eric/tools/css/reset/
+ */
+/**
+ * Typography SCSS file for the BTP WordPress Demo theme.
+ * 
+ * @package btp-wordpress
+ */
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  color: #575757;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Roboto Slab", sans-serif;
+  font-weight: 700;
+  color: #26262B;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: 55px;
+  line-height: 57.5px;
+}
+
+h2 {
+  font-size: 30px;
+  line-height: 39.57px;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+p {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  color: #575757;
+  line-height: 24px;
+  margin-bottom: 15px;
+}
+p:empty {
+  margin-bottom: 0;
+}
+
+/**
+ * Modern CSS Reset by lightsandswirls
+ * 
+ * Uses Josh Comeau's Custom CSS Reset for #s 1-8 below with 
+ * some additional recommendations from Chris Coyier, along 
+ * with some old-school basics from the king, Eric Meyer.
+ * https://www.joshwcomeau.com/css/custom-css-reset/
+ * https://css-tricks.com/notes-on-josh-comeaus-custom-css-reset/
+ * https://meyerweb.com/eric/tools/css/reset/
+ */
+/**
+ * Helpers SCSS file for the BTP WordPress Demo theme.
+ * 
+ * @package btp-wordpress
+ */
+/* 5 columns (20% width) Bootstrap Grid Layout */
+.col-2dot4,
+.col-sm-2dot4,
+.col-md-2dot4,
+.col-lg-2dot4,
+.col-xl-2dot4,
+.col-xxl-2dot4 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.col-2dot4 {
+  flex: 0 0 20%;
+  max-width: 20%;
+}
+
+@media (min-width: 576px) {
+  .col-sm-2dot4 {
+    flex: 0 0 20%;
+    max-width: 20%;
+  }
+}
+@media (min-width: 768px) {
+  .col-md-2dot4 {
+    flex: 0 0 20%;
+    max-width: 20%;
+  }
+}
+@media (min-width: 992px) {
+  .col-lg-2dot4 {
+    flex: 0 0 20%;
+    max-width: 20%;
+  }
+}
+@media (min-width: 1200px) {
+  .col-xl-2dot4 {
+    flex: 0 0 20%;
+    max-width: 20%;
+  }
+}
+@media (min-width: 1440px) {
+  .col-xxl-2dot4 {
+    flex: 0 0 20%;
+    max-width: 20%;
+  }
+}
+/* Clearfix */
+.clearfix {
+  display: block;
+  zoom: 1;
+}
+.clearfix:after {
+  content: " ";
+  display: block;
+  font-size: 0;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+/* Text-wrap: Balance */
+.text-balance {
+  text-wrap: balance;
+}
+
+/**
+ * Modern CSS Reset by lightsandswirls
+ * 
+ * Uses Josh Comeau's Custom CSS Reset for #s 1-8 below with 
+ * some additional recommendations from Chris Coyier, along 
+ * with some old-school basics from the king, Eric Meyer.
+ * https://www.joshwcomeau.com/css/custom-css-reset/
+ * https://css-tricks.com/notes-on-josh-comeaus-custom-css-reset/
+ * https://meyerweb.com/eric/tools/css/reset/
+ */
+/**
  * Footer
  * 
  * @package btp-wordpress
@@ -12453,6 +12799,8 @@ textarea.form-control-lg {
 footer .footer-bottom {
   background-color: #26262B;
   color: #fff;
+  position: relative;
+  padding: 17px 0;
 }
 footer .footer-bottom .footer-copyright {
   font-family: "Roboto", sans-serif;
@@ -12460,9 +12808,185 @@ footer .footer-bottom .footer-copyright {
   font-weight: 400;
   line-height: 24px;
   text-align: left;
-  text-underline-position: from-font;
-  -webkit-text-decoration-skip-ink: none;
-          text-decoration-skip-ink: none;
+}
+footer .footer-bottom .footer-nav {
+  padding: 0;
+}
+@media screen and (min-width: 1200px) {
+  footer .footer-bottom .footer-nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+}
+footer .footer-bottom .footer-nav ul.footer-menu {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 0;
+  padding-left: 0;
+}
+@media screen and (min-width: 768px) {
+  footer .footer-bottom .footer-nav ul.footer-menu {
+    flex-direction: row;
+  }
+}
+footer .footer-bottom .footer-nav ul.footer-menu li {
+  display: inline-block;
+  padding: 0 10px 0 8px;
+  position: relative;
+}
+footer .footer-bottom .footer-nav ul.footer-menu li:after {
+  content: "|";
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+footer .footer-bottom .footer-nav ul.footer-menu li:last-child {
+  padding-right: 0;
+}
+footer .footer-bottom .footer-nav ul.footer-menu li:last-child:after {
+  content: "";
+}
+footer .footer-bottom .footer-nav ul.footer-menu li a {
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: right;
+  padding: 0;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+footer .footer-bottom .footer-nav ul.footer-menu li a:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+/**
+ * Modern CSS Reset by lightsandswirls
+ * 
+ * Uses Josh Comeau's Custom CSS Reset for #s 1-8 below with 
+ * some additional recommendations from Chris Coyier, along 
+ * with some old-school basics from the king, Eric Meyer.
+ * https://www.joshwcomeau.com/css/custom-css-reset/
+ * https://css-tricks.com/notes-on-josh-comeaus-custom-css-reset/
+ * https://meyerweb.com/eric/tools/css/reset/
+ */
+/**
+ * Buttons SCSS file for the BTP WordPress Demo theme.
+ * 
+ * @package btp-wordpress
+ */
+.btn {
+  display: inline-block;
+  background: none;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  transition: all 0.1s linear;
+  font-family: "Roboto Slab", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 24px;
+  cursor: pointer;
+  text-align: center;
+}
+.btn-dark {
+  border: 2px solid #26262B;
+  background-color: #26262B;
+  color: #fff;
+  padding: 9px 12px;
+  position: relative;
+}
+.btn-dark span {
+  display: block;
+  line-height: 24px;
+  padding-right: 26px;
+}
+.btn-dark span:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 14px;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  background-image: url(../images/ico-ext-link.svg);
+}
+.btn-dark:hover {
+  background-color: #fff;
+  border-color: #26262B;
+  color: #26262B;
+}
+.btn-dark:hover span:after {
+  filter: brightness(0);
+}
+
+/**
+ * Modern CSS Reset by lightsandswirls
+ * 
+ * Uses Josh Comeau's Custom CSS Reset for #s 1-8 below with 
+ * some additional recommendations from Chris Coyier, along 
+ * with some old-school basics from the king, Eric Meyer.
+ * https://www.joshwcomeau.com/css/custom-css-reset/
+ * https://css-tricks.com/notes-on-josh-comeaus-custom-css-reset/
+ * https://meyerweb.com/eric/tools/css/reset/
+ */
+/**
+ * Front Page
+ * 
+ * @package btp-wordpress
+ */
+.hero-home {
+  background-size: cover;
+  background-position: center;
+  padding: 227px 0;
+  position: relative;
+}
+.hero-home::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, #26262B -0.72%, rgba(38, 38, 43, 0) 100%);
+}
+.hero-home::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -62px;
+  width: 100%;
+  height: 62px;
+  background: #fff;
+  transform-origin: top left;
+  transform: skewY(-2deg);
+}
+.hero-home h1, .hero-home p {
+  position: relative;
+  z-index: 1;
+}
+.hero-home h1 {
+  color: #fff;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 12px 0 8px;
+  margin-bottom: 10px;
+}
+.hero-home p {
+  color: #fff;
+  font-size: 24px;
+  line-height: 30px;
+}
+
+.main-content {
+  padding: 65px 0;
+}
+.main-content.bg-gray-transparent {
+  background-color: rgba(217, 217, 217, 0.2);
 }
 
 /*# sourceMappingURL=main.css.map*/

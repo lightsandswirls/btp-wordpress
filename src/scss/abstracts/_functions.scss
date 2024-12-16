@@ -1,0 +1,23 @@
+/**
+ * Functions SCSS file for the BTP WordPress Demo theme.
+ * 
+ * @package btp-wordpress
+ */
+
+
+/* 
+* Function to return a color with an opacity value.
+* @param {number} $opacity - The opacity value (0-1).
+* @return {string} The color with the specified opacity.
+*
+* Usage:
+* .element {
+*   background-color: white(0.5);
+* }
+*/
+@function white($opacity) {
+    @return rgba(white, $opacity);
+}
+@function black($opacity) {
+    @return rgba(black, $opacity);
+}

@@ -1,0 +1,64 @@
+/**
+ * Buttons SCSS file for the BTP WordPress Demo theme.
+ * 
+ * @package btp-wordpress
+ */
+
+@use "../abstracts" as *;
+
+.btn {
+    display: inline-block;
+    background: none;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    //@extend %transition;
+    transition: all 0.1s linear;
+    font-family: $font-secondary;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 24px;
+    cursor: pointer;
+    text-align: center;
+
+
+    &-dark {
+        border: 2px solid $color-gray-dark;
+        background-color: $color-gray-dark;
+        color: $color-white;
+        padding: 9px 12px;
+        position: relative;
+
+        span {
+            display: block;
+            line-height: 24px;
+            padding-right: 26px;
+
+            &:after {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 50%;
+                right: 14px;
+                transform: translateY(-50%);
+                width: 20px;
+                height: 20px;
+                background-image: url('../images/ico-ext-link.svg');
+            }
+        }
+
+        &:hover {
+            background-color: $color-white;
+            border-color: $color-gray-dark;
+            color: $color-gray-dark;
+
+            span {
+                &:after {
+                    filter: brightness(0); // Makes the icon black when button is hovered
+                }
+            }
+        }        
+
+    }
+
+}

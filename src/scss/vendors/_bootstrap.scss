@@ -1,2 +1,11 @@
-// Import Bootstrap
+/**
+ * Bootstrap v5
+ * 
+ * First, import our custom Bootstrap variables and functions. Then, import Bootstrap.
+ * 
+ * https://getbootstrap.com/docs/5.1/getting-started/webpack/#importing-styles
+ * 
+ * @package btp-wordpress
+ */
+@import 'custom-bootstrap';
 @import "~bootstrap/scss/bootstrap";

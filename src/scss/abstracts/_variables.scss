@@ -6,15 +6,13 @@ $color-white: #fff;
 $color-gray: #575757;
 $color-gray-dark: #26262B;
 $color-gray-light: #f7f7f7;
-$color-gray-light-transparent: rgb(#d9d9d9, 20%); //rgba(217, 217, 217, 0.2) or #d9d9d933
+$color-gray-light-transparent: rgba(#d9d9d9, 20%); //rgba(217, 217, 217, 0.2) or #d9d9d933
 
 /**
  * Base Colors
  */
-$color-primary: $color-white !default;
-$color-secondary: $color-gray-dark !default;
 $body-text-color: $color-gray !default;
-$hero-gradient-overlay: linear-gradient(90deg, $color-gray-dark -0.72%, rgb($color-gray-dark, 0%) 100%) !default;
+$hero-gradient-overlay: linear-gradient(90deg, $color-gray-dark -0.72%, rgb($color-gray-dark, 0%) 100%);
 
 /**
  * Typography
@@ -33,11 +31,5 @@ $desktop: 'screen and (min-width: 992px)';
 $desktop-lg: 'screen and (min-width: 1200px)';
 $desktop-xl: 'screen and (min-width: 1440px)';
 $desktop-xxl: 'screen and (min-width: 1600px)';
-
-/**
- * Body  TODO: Move to base folder
- */
-$body-background-color: $color-gray-light;
-$body-text-color: $body-text-color;
 
 

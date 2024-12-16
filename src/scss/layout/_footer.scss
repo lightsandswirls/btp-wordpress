@@ -9,8 +9,10 @@
 footer {
 
     .footer-bottom {
-        background-color: $color-secondary;
-        color: $color-primary;
+        background-color: $color-gray-dark;
+        color: $color-white;
+        position: relative;
+        padding: 17px 0;
 
         .footer-copyright {
             font-family: $font-primary;
@@ -18,8 +20,67 @@ footer {
             font-weight: 400;
             line-height: 24px;
             text-align: left;
-            text-underline-position: from-font;
-            text-decoration-skip-ink: none;
+        }
+
+        .footer-nav {
+            padding: 0;
+
+            @media #{$desktop-lg} {
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+            }
+
+            ul.footer-menu {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                flex-direction: column;
+                margin-bottom: 0;
+                padding-left: 0;
+
+                @media #{$tablet} {
+                    flex-direction: row;
+                }
+
+                li {
+                    display: inline-block;
+                    padding: 0 10px 0 8px;
+                    position: relative;
+
+                    &:after {
+                        content: '|';
+                        position: absolute;
+                        right: 0;
+                        top: 0;                       
+                    }   
+
+                    &:last-child {
+                        padding-right: 0;
+
+                        &:after {
+                            content: '';
+                        }
+                    }                    
+
+                    a {
+                        font-family: $font-primary;
+                        font-size: 15px;
+                        font-weight: 400;
+                        line-height: 24px;
+                        text-align: right;                        
+                        padding: 0;
+                        text-decoration: underline;
+
+                        &:hover {
+                            text-decoration: none;
+                        }
+                    }
+
+                }
+
+            }
+
         }
 
     }   

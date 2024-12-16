@@ -3,7 +3,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
@@ -39,12 +38,14 @@ module.exports = {
         use: [
           MiniCssExtractPlugin.loader,
           {
+            // translates CSS into CommonJS modules
             loader: 'css-loader',
             options: {
               sourceMap: false
             }
           },
           {
+            // Run postcss actions
             loader: 'postcss-loader',
             options: {
               postcssOptions: {
@@ -64,6 +65,7 @@ module.exports = {
             }
           },
           {
+            // compiles Sass to CSS
             loader: 'sass-loader',
             options: {
               sourceMap: false
@@ -73,13 +75,11 @@ module.exports = {
       },
       {
         test: /\.(png|jpe?g|gif|svg)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'images/[name].[contenthash][ext]'
+        },
         use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: 'images/[name].[contenthash].[ext]',
-            }
-          },
           {
             loader: 'image-webpack-loader',
             options: {
@@ -98,11 +98,6 @@ module.exports = {
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: 'css/[name].[contenthash].min.css'
-    }),
-    new CopyPlugin({
-      patterns: [
-        { from: 'src/images', to: 'images' }
-      ]
     }),
     process.env.ANALYZE && new BundleAnalyzerPlugin()
   ].filter(Boolean),
