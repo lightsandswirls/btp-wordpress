@@ -25,6 +25,9 @@ vendor/**/.DS_Store
 # Ignore node dependency directories (used by webpack)
 node_modules/
 
+# Ignore package-lock.json file (used by npm)
+package-lock.json
+
 # Ignore OS generated files
 ehthumbs.db
 Thumbs.db

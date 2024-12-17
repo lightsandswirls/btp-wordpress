@@ -7,10 +7,33 @@
 @use "../abstracts" as *;
 
 .hero-home {
-    background-size: cover;
-    background-position: center;
-    padding: 227px 0;
+    padding: 120px 0;
     position: relative;
+    overflow: hidden;
+
+    // For image backgrounds
+    background-size: cover;
+    background-position: 75% 50%;
+    background-repeat: no-repeat;
+
+    // For video backgrounds
+    .hero-background-video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        transform: translateX(-50%) translateY(-50%);
+        z-index: 0;
+    }
+    
+    // Container for content
+    .container {
+        position: relative;
+        z-index: 1;
+    }
 
     &::before {
         content: '';
@@ -34,7 +57,17 @@
         transform: skewY(-2deg);
     }
 
-    h1, p {
+    @media #{$tablet} {
+        background-position: 75% 50%;
+        padding: 130px 0;
+    }
+
+    @media #{$desktop} {
+        background-position: center;
+        padding: 227px 0;
+    }
+
+    h1, em {
         position: relative;
         z-index: 1;
     }
@@ -46,15 +79,31 @@
         margin-bottom: 10px;
     }
 
-    p {
+    em {
+        display: block;
         color: $color-white;
-        font-size: 24px;
-        line-height: 30px;
+        font-size: 17px;
+        line-height: 24px;
+        margin-bottom: 15px;
+
+        @media #{$mobile-lg} {
+            font-size: 22px;
+            line-height: 28px;
+        }
+
+        @media #{$tablet} {
+            font-size: 24px;
+            line-height: 30px;
+        }
     }
 }
 
 .main-content {
-    padding: 65px 0;
+    padding: 50px 0;
+
+    @media #{$tablet} {
+        padding: 65px 0;
+    }
 
     &.bg-gray-transparent {
         background-color: $color-gray-light-transparent;

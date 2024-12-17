@@ -32,18 +32,21 @@
         span {
             display: block;
             line-height: 24px;
-            padding-right: 26px;
 
-            &:after {
-                content: '';
-                display: block;
-                position: absolute;
-                top: 50%;
-                right: 14px;
-                transform: translateY(-50%);
-                width: 20px;
-                height: 20px;
-                background-image: url('../images/ico-ext-link.svg');
+            &.ext-link {
+                padding-right: 26px;
+
+                &:after {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    top: 50%;
+                    right: 14px;
+                    transform: translateY(-50%);
+                    width: 20px;
+                    height: 20px;
+                    background-image: url('../images/ico-ext-link.svg');
+                }
             }
         }
 

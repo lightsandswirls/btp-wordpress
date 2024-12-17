@@ -1,8 +1,8 @@
             </article>
-            <!--end of <article> tag-->
+            <!-- END of <article> tag-->
 
         </main>
-        <!--end of .main-wrapper <main> tag-->
+        <!-- END of .main-wrapper <main> tag-->
 
         <footer class="footer">
 
@@ -11,10 +11,12 @@
                 <div class="footer-copyright">
                     <div class="container">
                         <div class="row">
-                            <div class="col-xl-6 d-md-flex align-items-md-center justify-content-md-center justify-content-xl-start">
-                                <span class="copyright py-md-0">&copy; Copyright <?php echo date( 'Y' ); ?>, By the Pixel</span>
+                            <div class="col-md-6 d-flex align-items-center justify-content-center justify-content-md-start mb-2 mb-md-0">
+                            <?php if ( is_active_sidebar( 'footer-widget-area' ) ) : ?>
+                                <?php dynamic_sidebar( 'footer-widget-area' ); ?>
+                            <?php endif; ?>
                             </div>
-                            <div class="col-xl-6">
+                            <div class="col-md-6">
                                 <nav class="footer-nav">
                                     <?php
                                     wp_nav_menu(
@@ -38,6 +40,7 @@
             </div>
 
         </footer>
+        <!-- END of Footer -->
 
     </div>
     <!-- END of Panel -->

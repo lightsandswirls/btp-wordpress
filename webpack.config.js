@@ -11,7 +11,7 @@ module.exports = {
     main: './src/js/main.js',
   },
   output: {
-    filename: 'js/[name].[contenthash].min.js',
+    filename: 'js/[name].min.js',
     path: path.resolve(__dirname, 'dist'),
     clean: true
   },
@@ -77,7 +77,7 @@ module.exports = {
         test: /\.(png|jpe?g|gif|svg)$/i,
         type: 'asset/resource',
         generator: {
-          filename: 'images/[name].[contenthash][ext]'
+          filename: 'images/[name][ext]'
         },
         use: [
           {
@@ -97,7 +97,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
-      filename: 'css/[name].[contenthash].min.css'
+      filename: 'css/[name].min.css'
     }),
     process.env.ANALYZE && new BundleAnalyzerPlugin()
   ].filter(Boolean),
